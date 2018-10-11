@@ -5,7 +5,7 @@ java client for godfs!
 
 
 maven dependency:
-```javascript
+```xml
 <dependency>
     <groupId>com.github.hetianyi</groupId>
     <artifactId>spring-boot-starter-godfs-client</artifactId>
@@ -16,7 +16,7 @@ maven dependency:
 
 
 configuration in application.yml:
-```javascript
+```yaml
 spring:
   servlet:
     multipart:
@@ -34,7 +34,7 @@ godfs:
 ```
 
 start using:
-```javascript
+```java
 @Autowired
 private GodfsApiClient godfsApiClient;
 ```
