@@ -9,7 +9,7 @@ maven dependency:
 <dependency>
     <groupId>com.github.hetianyi</groupId>
     <artifactId>spring-boot-starter-godfs-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
