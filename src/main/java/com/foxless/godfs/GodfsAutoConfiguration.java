@@ -1,6 +1,6 @@
 package com.foxless.godfs;
 
-import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.foxless.godfs.api.GodfsApiClient;
 import com.foxless.godfs.bean.Tracker;
 import com.foxless.godfs.config.ClientConfigurationBean;
@@ -33,7 +33,7 @@ public class GodfsAutoConfiguration {
 
     @Bean
     @Autowired
-    public GoDFSClient goDFSClient(ClientConfigurationBean configurationBean) {
+    public GoDFSClient goDFSClient(ClientConfigurationBean configurationBean) throws JsonProcessingException {
         GoDFSClient client = new GoDFSClient(configurationBean);
         client.start();
         return client;
