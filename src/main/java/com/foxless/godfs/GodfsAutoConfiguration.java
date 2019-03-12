@@ -2,8 +2,7 @@ package com.foxless.godfs;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.foxless.godfs.api.GodfsApiClient;
-import com.foxless.godfs.bean.Tracker;
-import com.foxless.godfs.config.ClientConfigurationBean;
+import com.foxless.godfs.common.Tracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -15,19 +14,16 @@ import java.util.List;
 @EnableConfigurationProperties(GodfsClientProperties.class)
 public class GodfsAutoConfiguration {
 
-    @Autowired
-    private GodfsClientProperties godfsClientProperties;
-
     @Bean
     public ClientConfigurationBean clientConfigurationBean(GodfsClientProperties godfsClientProperties) {
         ClientConfigurationBean configuration = new ClientConfigurationBean();
-        configuration.setSecret(godfsClientProperties.getSecret());
         List<Tracker> trackers = godfsClientProperties.getTrackers();
         if (null != trackers) {
             for (Tracker tracker : trackers) {
                 configuration.addTracker(tracker);
             }
         }
+        configuration.setMaxConnections(godfsClientProperties.getMaxConnections());
         return configuration;
     }
 

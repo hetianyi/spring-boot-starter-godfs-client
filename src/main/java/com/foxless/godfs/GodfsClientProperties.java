@@ -1,22 +1,14 @@
 package com.foxless.godfs;
 
-import com.foxless.godfs.bean.Tracker;
+import com.foxless.godfs.common.Tracker;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
 
 @ConfigurationProperties(prefix = "godfs")
 public class GodfsClientProperties {
-    private String secret;
+    private Integer maxConnections;
     private List<Tracker> trackers;
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
 
     public List<Tracker> getTrackers() {
         return trackers;
@@ -24,5 +16,13 @@ public class GodfsClientProperties {
 
     public void setTrackers(List<Tracker> trackers) {
         this.trackers = trackers;
+    }
+
+    public Integer getMaxConnections() {
+        return maxConnections;
+    }
+
+    public void setMaxConnections(Integer maxConnections) {
+        this.maxConnections = maxConnections;
     }
 }
